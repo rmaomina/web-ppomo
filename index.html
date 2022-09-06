@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <link rel="canonical" href="" />
+    <link rel="shortcut icon" type="image/jpg" href="favicon.ico"/>
+    <meta charset="UTF-8" />
+    <meta name="Referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+    <meta http-equiv="Expires" content="-1">
+    <meta name="robots" content="index, follow" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" /> 
+
+    <!-- OG Tag -->
+    <meta property="fb:app_id" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:site_name" content="@" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="">
+    <meta property="og:image" content="uploads/thumb/logo.png" />
+    <meta property="og:description" content="" />
+
+    <!-- Tw -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="uploads/thumb/logo.png" />
+    <meta name="twitter:url" content="" />  
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+
+    <title>ppomodoro</title>
+
+    <script src="https://kit.fontawesome.com/cebb956b15.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="assets/style/common.css">
+    <link rel="stylesheet" type="text/css" href="assets/style/style.css">
+    <script src="assets/script/common.js" defer></script>
+</head>
+
+<body>
+  <!-- app -->
+  <div class="app">
+    <!-- header -->
+    <header class="header">
+      <div class="info">
+        <button class="info__button">i</button>
+      </div>
+      <h1>ppomodoro</h1>
+      <div class="setting">
+        <div class="sfx">
+          <input type="checkbox" id="sfx__button" name="sfx" value="1" checked>
+          <label for="sfx__button">
+            <i class="fa-solid fa-music"></i>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- main -->
+    <main>
+      <div class="today">2022년 9월 7일 (수요일) 오전 1:23:48 ٩( ᐛ )و</div>
+      <div class="timer">
+        <ul class="preset">
+          <button class="preset__item" data-preset="20">20분</button>
+          <button class="preset__item active" data-preset="30">30분</button>
+          <button class="preset__item" data-preset="60">1시간</button>
+        </ul>
+        <div class="timer__inputs">
+          <input type="text" value="88" class="timer__input--shadow" maxlength="2" disabled>
+          <input type="text" value="88" class="timer__input--shadow" maxlength="2" disabled>
+          <input type="text" value="02" class="timer__input--min" maxlength="2">
+          <input type="text" value="00" class="timer__input--sec" maxlength="2">
+        </div>
+        <div class="timer__buttons">
+          <button class="timer__button--activate" data-status="start">start</button>
+          <button class="timer__button--refresh"><i class="fa-solid fa-rotate-right"></i></button>
+        </div>
+      </div>
+      <div class="todos">
+        <form action="" class="todos__task">
+          <input type="text" name="" id="" placeholder="지금 당장 시작할 일은 무엇인가요?" />
+        </form>
+        <ul class="todos__list">
+          <li class="todos__list--item">
+            <input type="checkbox" id="sfx__button" name="sfx" value="1" checked>
+            <label for="sfx__button">오늘의 할일은 이것인데</label>
+          </li>
+          <li class="todos__list--item">이걸 다끝내고 자면 몇시야 도대체 근데 재밌음 ㅋ </li>
+          <li class="todos__list--item">오늘의 할일은 이것인데</li>
+          <li class="todos__list--item">이걸 다끝내고 자면 몇시야 도대체 근데 재밌음 ㅋ </li>
+          <li class="todos__list--item">빨리 만들어보고 싶으당당당.</li>
+          <li class="todos__list--item done">빨리 만들어보고 싶으당당당.</li>
+        </ul>
+      </div>
+    </main>
+    
+    <!-- footer -->
+    <footer></footer>
+
+    <!-- shapes -->
+    <div class="shapes" aria-hidden="true">
+      <div class="circle1"></div>
+      <div class="circle2"></div>
+      <div class="rectangle1"></div>
+      <div class="rectangle2"></div>
+      <div class="triangle1"></div>
+      <div class="triangle2"></div>
+    </div>
+    <div class="modal">
+      <div class="modal__dimmed"></div>
+      <div class="modal__panel">
+        <h1></h1>
+        <p></p>
+        <div class="contact"></div>
+        <div class="copyrights">
+          <p class="">폰트 정보</p>
+          <p class="">copyright</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
