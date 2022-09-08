@@ -10,6 +10,7 @@
 
   --main-font-color: #212c2c;
   --sub-font-color: #505555;
+  --upgent-color: #ff3636;
 
   --unique-font: 'Lobster', cursive;
   --default-gradient: linear-gradient(-40deg, #d4acfb 0%, #b84fce 100%);
@@ -21,6 +22,7 @@
 
 body {
   position: relative;
+  min-width: 400px;
   min-height: 100vh;
   background-color: #fff;
   color: var(--main-font-color);
@@ -39,7 +41,7 @@ body.relax {
 }
 
 .app {
-
+  min-height: 100vh;
 }
 
 .header {
@@ -158,6 +160,9 @@ main {
   background: transparent;
   will-change: background-color;
   transition: background-color 1s;
+
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 .timer__inputs::before {
@@ -199,7 +204,7 @@ main {
 
 .countdown .timer__input--min,
 .countdown .timer__input--sec {
-  color: #ff3636;
+  color: var(--upgent-color);
 }
 
 .countdown .timer__input--min {
@@ -268,15 +273,40 @@ main {
 }
 
 .todos {
-  width: 50%;
+  max-width: 700px;
+  min-width: 400px;
   background-color: #fff;
   box-shadow: var(--default-shadow);
-  padding: 30px 40px;
-  border-radius: 10px 10px 0 0;
+  padding: 30px 30px 30px 40px;
+  border-radius: 12px;
   opacity: 0.9;
 }
 
+.todos__task {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.todos__submit {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+  border: 2px solid var(--main-font-color);
+  border-radius: 50%;
+  font-family: var(--unique-font);
+  font-size: 1.2rem;
+  color: var(--main-font-color);
+}
+
 .todos__task > input[type="text"] {
+  flex: 1 1 auto;
   padding: 14px 0;
   width: 100%;
   border-bottom: 2px solid var(--main-font-color);
@@ -284,6 +314,34 @@ main {
   color: var(--main-font-color);
   font-size: 1rem;
 }
+
+.todos__list {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.todos__list--item {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.todos__list--item > input + label {
+  position: relative;
+  font-size: 1rem;
+  align-items: flex-start;
+  color: var(--main-font-color);
+}
+
+.todos__list--item > input + label span {
+  position: absolute;
+  top: -4px;
+  right: -5px;
+}
+
+.todos__list--item > input:checked + label {
+  text-decoration: line-through;
+}
+
 
 footer {
 
@@ -366,12 +424,11 @@ footer {
 
 .modal {
   display: none;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 40px 30px;
+  width: 100%;
+  height: 100%;
 }
 
 .modal.active {
@@ -384,10 +441,9 @@ footer {
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 10%);
-  transition: opacity 1s;
+  background-color: rgba(0, 0, 0, 20%);
+  transition: opacity .3s;
+  will-change: opacity;
   opacity: 0;
 }
 
@@ -395,10 +451,105 @@ footer {
   opacity: 1;
 }
 
-.modal__panel {
-  width: 100%;
-  height: 100%;
+.modal__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  width: 700px;
+  max-width: 700px;
+  min-width: 400px;
+  min-height: 400px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: var(--default-shadow);
+  transform: translate(-50%, -50%);
+  will-change: opacity;
+  transition: opacity 1s;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 40px 20px;
+  border: 5px solid var(--main-font-color);
+}
+
+.modal.active .modal__container {
+  height: auto;
+}
+
+.modal__button--right,
+.modal__button--left {
+  flex: 0 0 30px;
+}
+
+.modal__panel {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.modal__panel.active {
+  display: block;
+}
+
+.title {
+  position: relative;
+  margin-bottom: 30px;
+  padding-top: 50px;
+  font-size: 1.5rem;
+  font-weight: 200;
+  text-align: center;
+  color: var(--main-font-color);
+}
+
+.title > strong {
+  font-weight: 600;
+}
+
+.fa-square-full {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  display: block;
+  font-size: 1rem;
+  color: var(--main-font-color);
+  margin-bottom: 30px;
+  animation: rotate 6s infinite;
+  transform-origin: center center;
+  margin: 0;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translateX(-50%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(405deg);
+  }
+}
+
+.description {
+  padding: 0 3rem;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 2rem;
+  text-align: center;
+  color: var(--sub-font-color);
+}
+
+.greeting {
+  font-weight: 500;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.greeting__row {
+  display: block;
+  padding: .3rem 0;
+  margin-bottom: 5px;
 }

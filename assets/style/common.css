@@ -100,57 +100,6 @@ body {
     top: 0;
 }
 
-/* Form */
-input[type="checkbox"],
-input[type="radio"] {
-    display: none;
-}
-
-input[type="checkbox"]+label,
-input[type="radio"]+label {
-    line-height: 2.8;
-    cursor: pointer;
-}
-
-input[type="checkbox"]+label span,
-input[type="radio"]+label span {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    margin: -5px 10px 0 0;
-    border-radius: 50%;
-    border: 1px solid #c4c4c4;
-    vertical-align: middle;
-    background: #fff url() center center / 32px auto no-repeat;
-    color: #666;
-    font: 400 15px / 1.6 'Noto Sans KR';
-}
-
-input[type="checkbox"]:checked+label span,
-input[type="radio"]:checked+label span {
-    border: none;
-    background-color: #ff4e6c;
-    background-image: url(../img/icons/ico-checkbox.png);
-}
-
-input[type="radio"] {
-    display: none;
-}
-
-input[type="radio"]+label span {
-    display: inline-block;
-    width: 22px;
-    height: 22px;
-    margin: 0px 10px 4px 2px;
-    vertical-align: middle;
-    background: url(../img/icons/ico-radio.png) left top no-repeat;
-    cursor: pointer;
-}
-
-input[type="radio"]:checked+label span {
-    background: url(../img/icons/ico-radio.png) bottom no-repeat;
-}
-
 h1 {
   font-size: 2rem;
 }
@@ -189,36 +138,24 @@ input[type="radio"] + label {
 input[type="checkbox"] + label span,
 input[type="radio"] + label span {
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   margin-right: 10px;
   border-radius: 50%;
   border: 2px solid var(--check-border-color);
-  background: url(../images/classtool/ico-checked@2x.webp) 0 0 / auto 100% no-repeat;
+  background: url(../image/ico-checked@2x.webp) 0 0 / auto 100% no-repeat;
   font: 400 15px / 1.6 'Pretendard';
   cursor: pointer;
 }
 
-input[type="checkbox"]:checked+label span,
-input[type="radio"]:checked+label span {
+input[type="checkbox"]:checked + label span,
+input[type="radio"]:checked + label span {
   background-color: var(--sub-point-dark);
   background-position: 100% 0;
 }
 
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
 input[type="text"]::placeholder {
-  color: #ff4e6c;
+  color: var(--main-font-color);
 }
 
 .label {
