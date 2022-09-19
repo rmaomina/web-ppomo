@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-:root {
+body {
   --main-color1: #cbf3f0;
   --main-color2: #2ec4b6;
   --main-color3: #ffbf69;
@@ -26,18 +26,17 @@ body {
   min-height: 100vh;
   background-color: #fff;
   color: var(--main-font-color);
+  transition: all .3s ease-in-out;
 }
 
 body.focus {
   background-color: #b84fce;
   background-image: var(--default-gradient);
-  color: #fff;
 }
 
 body.relax {
   background-color: #0093E9;
   background-image: var(--relax-gradient);
-  color: #fff;
 }
 
 .app {
@@ -543,6 +542,7 @@ footer {
 }
 
 .greeting {
+  margin-bottom: 40px;
   font-weight: 500;
   font-size: 1.3rem;
   text-align: center;
@@ -552,4 +552,28 @@ footer {
   display: block;
   padding: .3rem 0;
   margin-bottom: 5px;
+}
+
+.contact {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 50px;
+}
+
+.contact__github,
+.contact__velog {
+  font-size: 2rem;
+  margin: 0 15px;
+}
+
+.copyrights > p {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.copyrights > p a {
+  font-weight: 600;
+  color: var(--main-font-color);
 }

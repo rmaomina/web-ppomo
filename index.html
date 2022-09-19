@@ -35,11 +35,12 @@
     <meta name="twitter:creator" content="@" />
 
     <title>ppomodoro</title>
-
+    <!-- TODO:: -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script src="https://kit.fontawesome.com/cebb956b15.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="assets/style/common.css">
     <link rel="stylesheet" type="text/css" href="assets/style/style.css">
-    <script src="assets/script/common.js" defer></script>
+    <script src="assets/script/script.js" defer></script>
 </head>
 
 <body>
@@ -48,7 +49,7 @@
     <!-- header -->
     <header class="header">
       <div class="info">
-        <button class="info__button">i</button>
+        <button class="info__button" onclick="openModalHandle()">i</button>
       </div>
       <h1>ppomodoro</h1>
       <div class="setting">
@@ -63,7 +64,7 @@
 
     <!-- main -->
     <main>
-      <div class="today">2022년 9월 7일 (수요일) 오전 1:23:48 ٩( ᐛ )و</div>
+      <div class="today"></div>
       <div class="timer">
         <ul class="preset">
           <button class="preset__item" data-preset="20">20분</button>
@@ -119,10 +120,10 @@
       <div class="triangle1"></div>
       <div class="triangle2"></div>
     </div>
-    <div class="modal active">
+    <div class="modal">
       <div class="modal__dimmed"></div>
       <div class="modal__container">
-        <button class="modal__button-left"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="modal__button-left" data-dir="left" onclick="modalNavHandle(event)"><i class="fa-solid fa-chevron-left"></i></button>
         <div class="modal__panel active">
           <h1 class="title">
             <i class="fa-solid fa-square-full"></i>
@@ -138,19 +139,20 @@
         </div>
         <div class="modal__panel">
           <div class="greeting">
-            <span class="greeting__row">만나서 반갑습니다.</span>
-            <span class="greeting__row">매일 업그레이드 중인 개발자,</span>
-            <span class="greeting__row">김민아입니다.</span>
+            <p class="greeting__row fadeInUp animated" style="animation-delay: 0ms">만나서 반갑습니다.</p>
+            <p class="greeting__row fadeInUp animated" style="animation-delay: 200ms">매일 업그레이드되는 개발자</p>
+            <p class="greeting__row fadeInUp animated" style="animation-delay: 400ms">김민아입니다.</p>
           </div>
-        </div>
-        <div class="modal__panel">
-          <div class="contact"></div>
+          <div class="contact">
+            <p class="contact__github"><i class="fa-brands fa-github"></i></p>
+            <p class="contact__velog"><i class="fa-brands fa-vimeo"></i></p>
+          </div>
           <div class="copyrights">
-            <p class="">폰트 정보</p>
-            <p class="">copyright</p>
+            <p class="">이 포트폴리오는 <a href="https://cactus.tistory.com/306">프리텐다드 폰트</a>를 사용하였습니다.</p>
+            <p class="">copyright ⓒ 2022 Mina Kim, All Rights Reserved </p>
           </div>
         </div>
-        <button class="modal__button-right"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="modal__button-right" data-dir="right" onclick="modalNavHandle(event)"><i class="fa-solid fa-chevron-right"></i></button>
       </div>
     </div>
   </div>
