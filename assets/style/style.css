@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-body {
+:root {
   --main-color1: #cbf3f0;
   --main-color2: #2ec4b6;
   --main-color3: #ffbf69;
@@ -29,9 +29,14 @@ body {
   transition: all .3s ease-in-out;
 }
 
+body.focus,
+body.relax {
+
+}
+
 body.focus {
   background-color: #b84fce;
-  background-image: var(--default-gradient);
+  background-image: var(--focus-gradient);
 }
 
 body.relax {
@@ -174,6 +179,11 @@ main {
   animation: blink 1s;
 }
 
+body.focus .timer__inputs::before,
+body.relax .timer__inputs::before {
+  color: white;
+}
+
 @keyframes blink {
   0% {
     opacity: 0;
@@ -217,8 +227,14 @@ main {
 .timer__input--shadow {
   position: absolute;
   z-index: -1;
-  color: #454545;
-  opacity: 0.3;
+  color: #121212;
+  opacity: 0.2;
+  transition: color 1s, opacity 1s;
+}
+
+body.focus [class^="timer__input--"],
+body.relax [class^="timer__input--"] {
+  color: white;
 }
 
 .timer__input--shadow:nth-child(1) {
@@ -355,6 +371,14 @@ footer {
   pointer-events: none;
   overflow: hidden;
   z-index: -2;
+  opacity: .8;
+  will-change: opacity;
+  transition: opacity 1s ease-in;
+}
+
+body.focus .shapes,
+body.relax .shapes {
+  opacity: .1;
 }
 
 .shapes > div {
